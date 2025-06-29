@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildUserExtensionsPath)/sdv.props"
+    Condition="Exists('$(MSBuildUserExtensionsPath)/sdv.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>default</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>GingerIslandMainlandAdjustments</AssemblyName>
+    <RootNamespace>GingerIslandMainlandAdjustments</RootNamespace>
+    <Name>Ginger Island Mainland Adjustments</Name>
+    <Description>Dialogue keys for NPCs headed to or away from Ginger Island, post-Ginger Island
+      Schedules, and so on.</Description>
+    <Authors>atravita &amp; mushymato</Authors>
+    <UniqueId>atravita.GingerIslandMainlandAdjustments</UniqueId>
+    <EnableHarmony>true</EnableHarmony>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.2.0</Version>
+    <BaseManifest>cp_dependencies.json</BaseManifest>
+    <UpdateKeys>Nexus:10004@CodePack</UpdateKeys>
+    <MinimumApiVersion_Behavior>UpdateFull</MinimumApiVersion_Behavior>
+    <MinimumGameVersion_Behavior>UpdateFull</MinimumGameVersion_Behavior>
+    <Dependencies_VersionBehavior>UpdateFull</Dependencies_VersionBehavior>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NetEscapades.EnumGenerators" Version="1.0.0-beta14" />
+    <PackageReference Include="Leclair.Stardew.ModManifestBuilder" Version="2.4.1" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+    <PackageReference Include="Pathoschild.Stardew.ModTranslationClassBuilder" Version="2.2.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TranslationClassBuilder_AddGetByKey>true</TranslationClassBuilder_AddGetByKey>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="StardewValley" />
+    <Using Include="StardewModdingAPI" />
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+    <Using Alias="NotNullAttribute" Include="System.Diagnostics.CodeAnalysis.NotNullAttribute" />
+    <Using Alias="Object" Include="System.Object" />
+    <Using Alias="SObject" Include="StardewValley.Object" />
+  </ItemGroup>
+
+</Project>
