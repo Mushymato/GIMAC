@@ -15,7 +15,7 @@
     <UniqueId>atravita.GingerIslandMainlandAdjustments</UniqueId>
     <EnableHarmony>true</EnableHarmony>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.2.0</Version>
+    <Version>1.2.0-rc.0</Version>
     <BaseManifest>cp_dependencies.json</BaseManifest>
     <UpdateKeys>Nexus:10004@CodePack</UpdateKeys>
     <MinimumApiVersion_Behavior>UpdateFull</MinimumApiVersion_Behavior>
@@ -28,6 +28,10 @@
     <PackageReference Include="Leclair.Stardew.ModManifestBuilder" Version="2.4.1" />
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
     <PackageReference Include="Pathoschild.Stardew.ModTranslationClassBuilder" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentPacks Include="../[CP] Ginger Island Mainland Adjustments" Version="1.2.0" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -5,7 +5,6 @@ using GingerIslandMainlandAdjustments.AtraStuff;
 using GingerIslandMainlandAdjustments.CustomConsoleCommands;
 using GingerIslandMainlandAdjustments.DialogueChanges;
 using GingerIslandMainlandAdjustments.Integrations;
-using GingerIslandMainlandAdjustments.MultiplayerHandler;
 using GingerIslandMainlandAdjustments.Niceties;
 using GingerIslandMainlandAdjustments.ScheduleManager;
 using HarmonyLib;
@@ -44,9 +43,6 @@ internal sealed class ModEntry : Mod
         helper.Events.GameLoop.SaveLoaded += this.OnSaveLoaded;
         helper.Events.Input.ButtonPressed += this.OnButtonPressed;
         helper.Events.Player.Warped += this.OnPlayerWarped;
-
-        helper.Events.Multiplayer.PeerConnected += static (_, e) => MultiplayerSharedState.ReSendMultiplayerMessage(e);
-        helper.Events.Multiplayer.ModMessageReceived += static (_, e) => MultiplayerSharedState.UpdateFromMessage(e);
 
         helper.Events.Content.AssetRequested += this.OnAssetRequested;
 
@@ -108,6 +104,7 @@ internal sealed class ModEntry : Mod
     /// </summary>
     private void ClearCaches()
     {
+        NPCCache.Clear();
         DialoguePatches.ClearTalkRecord();
         DialogueUtilities.ClearDialogueLog();
 

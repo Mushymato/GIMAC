@@ -3,15 +3,22 @@ using System.Runtime.CompilerServices;
 namespace GingerIslandMainlandAdjustments.AtraStuff;
 
 /// <summary>
-/// Not actually a cache, just stub for atra's cache
+/// Much simpler NPC cache
 /// </summary>
 public static class NPCCache
 {
-    /// <summary>
-    /// Just uses the vanilla getCharacterFromName
-    /// </summary>
-    /// <param name="name"></param>
-    /// <returns></returns>
+    private static readonly Dictionary<string, NPC> _cache = [];
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static NPC? GetByVillagerName(string name) => Game1.getCharacterFromName(name);
+    public static NPC? GetByVillagerName(string name)
+    {
+        if (!_cache.TryGetValue(name, out NPC? npc))
+        {
+            npc = Game1.getCharacterFromName(name);
+            _cache[name] = npc;
+        }
+        return npc;
+    }
+
+    public static void Clear() => _cache.Clear();
 }
